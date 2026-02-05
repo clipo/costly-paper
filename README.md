@@ -226,7 +226,7 @@ make test
 @article{lipo2026paradox,
   title={The Paradox of Monumental Architecture: An Agent-Based Model of
          Costly Signaling Under Resource Uncertainty},
-  author={Lipo, Carl P. and Hunt, Terry L.},
+  author={Lipo, Carl P. DiNapoli, Robert J. and Hunt, Terry L.},
   journal={Proceedings of the Royal Society B},
   year={2026},
   note={in review}
@@ -240,7 +240,8 @@ MIT License - see [LICENSE](LICENSE) for details.
 ## Contact
 
 - Carl P. Lipo - Binghamton University - clipo@binghamton.edu
-- Terry L. Hunt - University of Arizona
+- Robert J. DiNapoli - Binghamton University - dinapoli@binghamton.edu
+- Terry L. Hunt - University of Arizona - tlhunt@arizona.edu
 
 ## Acknowledgments
 
