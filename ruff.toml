@@ -1,0 +1,16 @@
+# Ruff linting configuration for costly-signaling-abm
+# Run with: ruff check src/ scripts/
+
+line-length = 100
+target-version = "py38"
+
+[lint]
+select = ["E", "F", "W", "I"]
+ignore = [
+    "E402",  # Module level import not at top of file (needed for sys.path manipulation)
+    "E501",  # Line too long (handled separately with line-length)
+    "F841",  # Local variable assigned but never used (common in plotting code)
+]
+
+[lint.per-file-ignores]
+"scripts/*" = ["E402"]  # Allow imports after sys.path manipulation in scripts

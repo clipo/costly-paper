@@ -1,0 +1,94 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "costly-signaling-abm"
+version = "1.0.0"
+description = "Agent-based model of costly signaling and monument building under environmental uncertainty"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    {name = "Carl P. Lipo", email = "clipo@binghamton.edu"},
+    {name = "Robert J. DiNapoli"},
+    {name = "Terry L. Hunt"},
+]
+keywords = [
+    "agent-based modeling",
+    "costly signaling",
+    "archaeology",
+    "Polynesia",
+    "Rapa Nui",
+    "Easter Island",
+    "cultural evolution",
+    "multilevel selection",
+    "Price equation",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Artificial Life",
+]
+
+dependencies = [
+    "numpy>=1.21.0",
+    "matplotlib>=3.5.0",
+    "tqdm>=4.62.0",
+    "scipy>=1.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=22.0.0",
+    "ruff>=0.1.0",
+    "python-docx>=0.8.11",
+]
+docs = [
+    "python-docx>=0.8.11",
+]
+
+[project.urls]
+Homepage = "https://github.com/clipo/costly-signaling-abm"
+Documentation = "https://github.com/clipo/costly-signaling-abm#readme"
+Repository = "https://github.com/clipo/costly-signaling-abm"
+Issues = "https://github.com/clipo/costly-signaling-abm/issues"
+
+[project.scripts]
+costly-simulate = "costly.simulation:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 88
+target-version = ["py38", "py39", "py310", "py311"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+ignore = [
+    "E402",  # Module level import not at top of file (needed for sys.path manipulation)
+    "F841",  # Local variable assigned but never used (common in plotting code)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/*" = ["E402"]  # Allow imports after sys.path manipulation in scripts
